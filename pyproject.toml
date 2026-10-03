@@ -1,12 +1,14 @@
 [project]
-name = "ai-buildcamp-project"
+name = "dnd-rag-assistant"
 version = "0.1.0"
-description = "My AI Engineering Buildcamp project"
+description = "RAG assistant for Dungeons & Dragons 5E: answers rules, spell and character questions from the official rulebooks, with citations"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "gitsource>=0.0.5",
     "minsearch>=0.2.0",
     "openai>=3.16.2",
+    "pypdf>=6.19.0",
     "python-dotenv>=1.2.3",
 ]
 
