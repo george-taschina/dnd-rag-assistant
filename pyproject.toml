@@ -8,6 +8,7 @@ dependencies = [
     "gitsource>=0.0.5",
     "minsearch>=0.2.0",
     "openai>=3.16.2",
+    "pydantic-ai-slim[openai]>=2.56.0",
     "pypdf>=6.19.0",
     "python-dotenv>=1.2.3",
 ]
