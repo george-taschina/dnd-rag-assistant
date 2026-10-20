@@ -81,6 +81,23 @@ reference project.
 
 Every run prints the tool calls with their arguments and results, so a wrong answer can be traced to the exact call that misled it.
 
+## Tests
+
+```bash
+uv run pytest tests/ -v
+uv run pytest tests/test_judge.py -s     # print the judge's reasoning
+```
+
+| file | what it covers |
+|---|---|
+| `tests/conftest.py` | module-scoped `agent` fixture: index + agent built once per run |
+| `tests/utils.py` | `collect_tools` (tool calls out of a run's messages), `run_agent_test` |
+| `tests/test_agent.py` | happy path + tool order + citation, out-of-scope refusal, `list_sources` scope question |
+| `tests/judge.py` | the LLM judge: `evaluate_agent_performance` and `assert_criteria` |
+| `tests/test_judge.py` | three natural-language criteria for the opportunity-attack answer |
+
+pytest and pytest-asyncio run in the dev dependency group; `asyncio_default_*_loop_scope = "module"` keeps the fixture's HTTP client on the same event loop as the tests.
+
 ## Data
 
 Put your project data in the `data/` folder. See `notebooks/02-rag.ipynb` for how to load it.
