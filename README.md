@@ -42,6 +42,31 @@ Since week 3 the pipeline is an **agent with tools**: instead of always doing ex
 - `notebooks/02-rag.ipynb` - a minimal RAG baseline you can adapt to your own data
 - `notebooks/03-agent.ipynb` - week 3: the same pipeline turned into an agent with tools
 
+## Project Layout
+
+Notebooks are great for exploring, but they are hard to import and hard to test. The week‑3
+agent is therefore also available as a small Python project (the three‑module layout from the
+*Testing AI Applications* course):
+
+| file | contents |
+|---|---|
+| `tools.py` | knowledge‑base loading (`load_documents`, `chunk_documents_cached`, `build_index`), `merge_chunks`/`search_passages`, and the `DndTools` class with the four tools + `create_dnd_tools()` |
+| `doc_agent.py` | `DEFAULT_INSTRUCTIONS`, `DndAgentConfig`, `create_agent()`, the `NamedCallback` that prints every tool call, and `run_agent()` |
+| `main.py` | entry point: `uv run python main.py "your question"` |
+
+Run the agent from the command line:
+
+    uv run python main.py "Which spells can a 3rd-level wizard prepare?"
+
+    QUESTION: Which spells can a 3rd-level wizard prepare?
+    TOOL CALL (dnd-rules-agent): search_rules({"query":"3rd level wizard prepared spells"})
+    TOOL CALL (dnd-rules-agent): read_passage({"filename":"D&D 5E - Player's Handbook.pdf","start":148500,"length":4000})
+    ANSWER: ...
+
+The chunked index is cached in `.cache/chunks.pkl` (gitignored) so a run starts instantly
+after the first one — the same idea as `create_documentation_tools_cached` in the course
+reference project.
+
 ## The Agent (week 3)
 
 `notebooks/03-agent.ipynb` keeps the week‑1 data, index and citations, and replaces the fixed
