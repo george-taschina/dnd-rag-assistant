@@ -2,5 +2,13 @@
   {
     "topic": "Flanking House Rule",
     "note": "Flanking gives advantage on melee attack rolls."
+  },
+  {
+    "topic": "House Rule",
+    "note": "Critical hits deal maximum weapon damage plus one die."
+  },
+  {
+    "topic": "House Rule",
+    "note": "Critical hits deal maximum weapon damage plus one die."
   }
 ]

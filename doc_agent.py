@@ -110,13 +110,20 @@ async def run_agent(
 
 
 def format_tool_calls(result: AgentRunResult) -> list:
-    """Tool calls of a finished run as [{name, args}, ...] (skips final_result).
+    """Tool calls of a finished run as [{name, args}, ...] (skips final_result)."""
+    return format_tool_calls_from_messages(result.all_messages())
+
+
+def format_tool_calls_from_messages(messages: list) -> list:
+    """Same, but from a plain message list - pass only the NEW messages of a
+    turn (result.all_messages()[len(history):]) or history tool calls count
+    twice in multi-turn apps.
 
     PydanticAI hands over the arguments as a JSON string, so they are parsed
     here to keep assertions in tests readable.
     """
     tool_calls = []
-    for message in result.all_messages():
+    for message in messages:
         for part in message.parts:
             if part.part_kind != "tool-call" or part.tool_name == "final_result":
                 continue

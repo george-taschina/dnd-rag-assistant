@@ -81,6 +81,34 @@ reference project.
 
 Every run prints the tool calls with their arguments and results, so a wrong answer can be traced to the exact call that misled it.
 
+## Monitoring (week 5)
+
+Week 5 capstone: the agent is instrumented with **Pydantic Logfire** and wrapped in a
+Streamlit chat app.
+
+| file | what it does |
+|---|---|
+| `monitoring.py` | `logfire.configure` + `logfire.instrument_pydantic_ai()`, the `dnd_session` span helper (one browser session = one trace tree) and the shared event loop used by the app |
+| `cost_tracker.py` | per-session token/cost accumulation (course `cost_tracker` pattern, gpt-4o-mini pricing) |
+| `app.py` | Streamlit chat: per-session trace grouping via `logfire.attach_context`, tool-call expander, live session usage/cost in the sidebar |
+| `check_trace.py` | runs one query, then reads the trace back from Logfire with the query client and reconstructs the run with `trace_replay` (course `otel_test.py` pattern) |
+| `collect_data.py` | drives `app.py` with `streamlit.testing.v1.AppTest` to collect real interactions and summarise them from Logfire → `data/usage_collection.json` |
+| `trace_replay/` | course module: OTel trace → PydanticAI `AgentRunResult` (patched for the current query client and pydantic-ai 2.x usage attributes) |
+
+```bash
+uv run streamlit run app.py     # chat UI, one Logfire trace tree per browser session
+uv run python check_trace.py    # run a query and inspect its trace
+uv run python collect_data.py   # collect usage data through the app
+```
+
+The dashboard (`george-taschina/starter-project`) shows for every session:
+`dnd_session` → `invoke_agent dnd-rules-agent` → `chat gpt-4o-mini` LLM calls and
+`execute_tool search_rules / read_passage / list_sources / save_note` spans, with
+token usage (`gen_ai.aggregated_usage`) and cost per span.
+
+`.env` needs `OPENAI_API_KEY`, `LOGFIRE_WRITE_TOKEN` and `LOGFIRE_READ_TOKEN`
+(project settings → write/read tokens).
+
 ## Tests
 
 ```bash

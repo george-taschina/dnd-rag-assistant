@@ -1,0 +1,205 @@
+{
+ "interactions": [
+  {
+   "session": "typical-rules",
+   "question": "How does an opportunity attack work? What triggers it and what does it cost?",
+   "answer_chars": 1109,
+   "tools": [
+    "search_rules",
+    "read_passage",
+    "read_passage",
+    "read_passage"
+   ],
+   "seconds": 11.9
+  },
+  {
+   "session": "typical-rules",
+   "question": "What are the prerequisites for becoming a paladin?",
+   "answer_chars": 538,
+   "tools": [
+    "search_rules",
+    "read_passage",
+    "list_sources",
+    "read_passage",
+    "read_passage"
+   ],
+   "seconds": 27.6
+  },
+  {
+   "session": "typical-rules",
+   "question": "Can a rogue use Sneak Attack more than once per turn?",
+   "answer_chars": 625,
+   "tools": [
+    "search_rules",
+    "read_passage"
+   ],
+   "seconds": 16.2
+  },
+  {
+   "session": "edge-cases",
+   "question": "What is the airspeed velocity of an unladen swallow?",
+   "answer_chars": 150,
+   "tools": [],
+   "seconds": 1.4
+  },
+  {
+   "session": "edge-cases",
+   "question": "Remember this house rule: critical hits deal maximum weapon damage plus one die.",
+   "answer_chars": 127,
+   "tools": [
+    "save_note"
+   ],
+   "seconds": 2.7
+  },
+  {
+   "session": "edge-cases",
+   "question": "Come si calcola il bonus di competenza? (asked in Italian)",
+   "answer_chars": 801,
+   "tools": [
+    "search_rules",
+    "search_rules",
+    "search_rules"
+   ],
+   "seconds": 15.6
+  },
+  {
+   "session": "follow-ups",
+   "question": "Does the Shield spell work against Magic Missile?",
+   "answer_chars": 1075,
+   "tools": [
+    "search_rules",
+    "search_rules",
+    "read_passage",
+    "read_passage",
+    "search_rules",
+    "read_passage"
+   ],
+   "seconds": 34.7
+  },
+  {
+   "session": "follow-ups",
+   "question": "What about against a normal arrow?",
+   "answer_chars": 1003,
+   "tools": [
+    "search_rules",
+    "read_passage"
+   ],
+   "seconds": 24.6
+  },
+  {
+   "session": "follow-ups",
+   "question": "Which books are you able to answer from?",
+   "answer_chars": 499,
+   "tools": [
+    "list_sources"
+   ],
+   "seconds": 6.1
+  },
+  {
+   "session": "character-build",
+   "question": "How does grappling work in 5E?",
+   "answer_chars": 1546,
+   "tools": [
+    "search_rules",
+    "read_passage",
+    "read_passage"
+   ],
+   "seconds": 9.0
+  },
+  {
+   "session": "character-build",
+   "question": "I want a level 5 divination wizard - which abilities and spells do I get?",
+   "answer_chars": 1623,
+   "tools": [
+    "search_rules",
+    "search_rules",
+    "read_passage",
+    "list_sources",
+    "read_passage",
+    "search_rules"
+   ],
+   "seconds": 21.8
+  },
+  {
+   "session": "character-build",
+   "question": "Does expertise stack with Advantage on the same check?",
+   "answer_chars": 1006,
+   "tools": [
+    "search_rules"
+   ],
+   "seconds": 17.3
+  }
+ ],
+ "sessions_in_logfire": [
+  {
+   "trace_id": "01a1628984b3333ed7a8c09edf1efdc0",
+   "runs": 3,
+   "tools": [
+    "search_rules",
+    "read_passage",
+    "read_passage",
+    "read_passage",
+    "search_rules",
+    "read_passage",
+    "list_sources",
+    "read_passage",
+    "read_passage",
+    "search_rules",
+    "read_passage"
+   ],
+   "input_tokens": 167905,
+   "output_tokens": 812,
+   "cost_usd": 0.025673
+  },
+  {
+   "trace_id": "01a1628a5eb23049f0265b54bba906ce",
+   "runs": 3,
+   "tools": [
+    "save_note",
+    "search_rules",
+    "search_rules",
+    "search_rules"
+   ],
+   "input_tokens": 166032,
+   "output_tokens": 363,
+   "cost_usd": 0.025123
+  },
+  {
+   "trace_id": "01a1628aabff2e39dffb30f5047553b1",
+   "runs": 3,
+   "tools": [
+    "search_rules",
+    "search_rules",
+    "read_passage",
+    "read_passage",
+    "search_rules",
+    "read_passage",
+    "search_rules",
+    "read_passage",
+    "list_sources"
+   ],
+   "input_tokens": 260744,
+   "output_tokens": 840,
+   "cost_usd": 0.039616
+  },
+  {
+   "trace_id": "01a1628babad9222b3fcddb49a35176e",
+   "runs": 3,
+   "tools": [
+    "search_rules",
+    "read_passage",
+    "read_passage",
+    "search_rules",
+    "search_rules",
+    "read_passage",
+    "list_sources",
+    "read_passage",
+    "search_rules",
+    "search_rules"
+   ],
+   "input_tokens": 198356,
+   "output_tokens": 1310,
+   "cost_usd": 0.030539
+  }
+ ]
+}
