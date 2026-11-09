@@ -1,0 +1,85 @@
+{
+  "num_cases": 30,
+  "configurations": [
+    {
+      "config": "chunk_1500_step_750_title_heavy",
+      "chunk_size": 1500,
+      "chunk_step": 750,
+      "num_chunks": 11038,
+      "boost": {
+        "title": 3.0,
+        "description": 2.0,
+        "content": 1.0
+      },
+      "doc_hit_rate_at_3": 0.7667,
+      "doc_mrr_at_3": 0.6611,
+      "term_hit_rate_at_3": 0.7667,
+      "avg_passage_chars": 13391,
+      "avg_latency_ms": 12.32
+    },
+    {
+      "config": "chunk_3000_step_1500_title_heavy (baseline)",
+      "chunk_size": 3000,
+      "chunk_step": 1500,
+      "num_chunks": 5517,
+      "boost": {
+        "title": 3.0,
+        "description": 2.0,
+        "content": 1.0
+      },
+      "doc_hit_rate_at_3": 0.7667,
+      "doc_mrr_at_3": 0.6556,
+      "term_hit_rate_at_3": 0.8,
+      "avg_passage_chars": 23240,
+      "avg_latency_ms": 10.17
+    },
+    {
+      "config": "chunk_3000_step_1500_uniform",
+      "chunk_size": 3000,
+      "chunk_step": 1500,
+      "num_chunks": 5517,
+      "boost": {
+        "title": 1.0,
+        "description": 1.0,
+        "content": 1.0
+      },
+      "doc_hit_rate_at_3": 0.8667,
+      "doc_mrr_at_3": 0.7722,
+      "term_hit_rate_at_3": 0.8333,
+      "avg_passage_chars": 23200,
+      "avg_latency_ms": 10.13
+    },
+    {
+      "config": "chunk_3000_step_1500_content_heavy (selected)",
+      "chunk_size": 3000,
+      "chunk_step": 1500,
+      "num_chunks": 5517,
+      "boost": {
+        "title": 0.5,
+        "description": 0.5,
+        "content": 2.0
+      },
+      "doc_hit_rate_at_3": 0.9667,
+      "doc_mrr_at_3": 0.8389,
+      "term_hit_rate_at_3": 0.9667,
+      "avg_passage_chars": 23327,
+      "avg_latency_ms": 10.24
+    },
+    {
+      "config": "chunk_6000_step_3000_content_heavy",
+      "chunk_size": 6000,
+      "chunk_step": 3000,
+      "num_chunks": 2758,
+      "boost": {
+        "title": 0.5,
+        "description": 0.5,
+        "content": 2.0
+      },
+      "doc_hit_rate_at_3": 0.9333,
+      "doc_mrr_at_3": 0.8444,
+      "term_hit_rate_at_3": 0.9667,
+      "avg_passage_chars": 42777,
+      "avg_latency_ms": 8.34
+    }
+  ]
+}

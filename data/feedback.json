@@ -1,0 +1,20 @@
+[
+  {
+    "timestamp": "2026-11-09T14:01:01.585559+00:00",
+    "session_id": "demo-session-1",
+    "question": "How does an opportunity attack work?",
+    "answer_preview": "An opportunity attack occurs when a hostile creature you can see moves out of your reach...",
+    "rating": 1,
+    "label": "positive",
+    "comment": "Exact PHB rule cited."
+  },
+  {
+    "timestamp": "2026-11-09T14:01:01.585833+00:00",
+    "session_id": "demo-session-2",
+    "question": "How many hit dice do I recover after a long rest?",
+    "answer_preview": "After a long rest, a character regains all of their spent Hit Dice...",
+    "rating": -1,
+    "label": "negative",
+    "comment": "Should be half of total Hit Dice, not all."
+  }
+]

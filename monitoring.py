@@ -11,12 +11,17 @@ feedback" lessons.
 import asyncio
 import os
 import threading
+import json
 from contextlib import contextmanager
+from datetime import datetime, timezone
+from pathlib import Path
 
 import logfire
 from dotenv import load_dotenv
 
 load_dotenv()
+
+FEEDBACK_FILE = Path(__file__).resolve().parent / "data" / "feedback.json"
 
 # Configure once per process. With no token the SDK stays silent, so tests
 # and plain CLI runs are unaffected.
@@ -40,6 +45,55 @@ def dnd_session(session_id: str):
     """
     with logfire.span("dnd_session", session_id=session_id):
         yield logfire.get_context()
+
+
+def record_feedback(
+    session_id: str,
+    question: str,
+    answer: str,
+    rating: int,
+    comment: str = "",
+    lf_ctx=None,
+) -> dict:
+    """Record thumbs-up (+1) / thumbs-down (-1) user feedback in Logfire and
+    append it to data/feedback.json so it is persisted both in the observability
+    backend and locally.
+    """
+    label = "positive" if rating > 0 else "negative"
+    if lf_ctx is not None:
+        with logfire.attach_context(lf_ctx):
+            logfire.info(
+                "user_feedback",
+                session_id=session_id,
+                question=question,
+                rating=rating,
+                label=label,
+                comment=comment,
+            )
+    else:
+        logfire.info(
+            "user_feedback",
+            session_id=session_id,
+            question=question,
+            rating=rating,
+            label=label,
+            comment=comment,
+        )
+
+    FEEDBACK_FILE.parent.mkdir(exist_ok=True)
+    entries = json.loads(FEEDBACK_FILE.read_text()) if FEEDBACK_FILE.exists() else []
+    entry = {
+        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "session_id": session_id,
+        "question": question,
+        "answer_preview": answer[:240],
+        "rating": rating,
+        "label": label,
+        "comment": comment,
+    }
+    entries.append(entry)
+    FEEDBACK_FILE.write_text(json.dumps(entries, indent=2))
+    return entry
 
 
 _LOOP: asyncio.AbstractEventLoop | None = None

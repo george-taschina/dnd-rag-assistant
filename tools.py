@@ -30,7 +30,7 @@ EXCLUDE_FROM_CHUNKING = {
     "Trascrizione Schede Personaggi D&D.pdf",
 }
 
-BOOST = {"title": 3.0, "description": 2.0, "content": 1.0}
+BOOST = {"title": 0.5, "description": 0.5, "content": 2.0}
 
 
 def load_documents() -> list:

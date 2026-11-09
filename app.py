@@ -49,13 +49,38 @@ if "session_id" not in st.session_state:
     with logfire.span("dnd_session", session_id=st.session_state.session_id):
         st.session_state.lf_ctx = logfire.get_context()
 
-for msg in st.session_state.messages:
+for idx, msg in enumerate(st.session_state.messages):
     with st.chat_message(msg["role"]):
         st.markdown(msg["content"])
         if msg.get("tools"):
             with st.expander(f"🔧 Tools called ({len(msg['tools'])})"):
                 for t in msg["tools"]:
                     st.code(f"{t['name']}({t['args']})", language="python")
+        if msg["role"] == "assistant":
+            q_text = st.session_state.messages[idx - 1]["content"] if idx > 0 else ""
+            c1, c2, c3 = st.columns([1, 1, 8])
+            if c1.button("👍", key=f"up_{idx}", help="Helpful & accurate"):
+                monitoring.record_feedback(
+                    st.session_state.session_id,
+                    q_text,
+                    msg["content"],
+                    rating=1,
+                    lf_ctx=st.session_state.lf_ctx,
+                )
+                msg["feedback"] = "👍"
+                st.rerun()
+            if c2.button("👎", key=f"down_{idx}", help="Incorrect or ungrounded"):
+                monitoring.record_feedback(
+                    st.session_state.session_id,
+                    q_text,
+                    msg["content"],
+                    rating=-1,
+                    lf_ctx=st.session_state.lf_ctx,
+                )
+                msg["feedback"] = "👎"
+                st.rerun()
+            if msg.get("feedback"):
+                c3.caption(f"Recorded feedback: {msg['feedback']}")
 
 # ── Sidebar: live session usage ─────────────────────────────────────────────
 cost: SessionCost = st.session_state.cost
