@@ -109,6 +109,34 @@ token usage (`gen_ai.aggregated_usage`) and cost per span.
 `.env` needs `OPENAI_API_KEY`, `LOGFIRE_WRITE_TOKEN` and `LOGFIRE_READ_TOKEN`
 (project settings → write/read tokens).
 
+## Evaluation (week 6)
+
+Week 6 capstone: offline evaluation pipeline (`evals/`) — 50 scenarios across five categories, human labeling tool, and an aligned LLM judge.
+
+| file | what it does |
+|---|---|
+| `evals/scenarios.csv` | 50 D&D-specific evaluation scenarios (15 `happy_path`, 10 `varied_phrasing`, 10 `edge_case`, 7 `out_of_scope`, 8 `breaking`) |
+| `evals/run_batch.py` | runs the agent on all 50 scenarios in batch → `evals/results.json` ($0.2064, 584s) |
+| `evals/label_app.py` | Streamlit labeling app (adapted from the course reference): shows question, full response and tool calls, good/bad + failure-category dropdown, saves to `evals/labels.csv` |
+| `evals/labels.csv` | human gold labels for all 50 scenarios (**43 good / 7 bad**; failure categories: `incorrect-detail` (3), `hallucination` (2), `wrong-scope` (1), `incomplete` (1)) |
+| `evals/judge.py` | PydanticAI structured-output LLM judge (`reasoning` + `label`), refined after analyzing v1 disagreements |
+| `evals/results_judged_v1.json`, `evals/results_judged.json` | judge outputs before (v1) and after (v2) prompt improvement |
+| `evals/metrics.py` | computes TP/FP/FN/TN, accuracy, precision, recall, and prints every disagreement |
+
+| metric | judge v1 | judge v2 (improved) |
+|---|---|---|
+| accuracy | 0.86 (43/50) | **0.92 (46/50)** |
+| precision ("bad") | 0.50 (5/10) | **0.67 (6/9)** |
+| recall ("bad") | 0.71 (5/7) | **0.86 (6/7)** |
+| disagreements | 7 | **4** |
+
+```bash
+uv run python evals/run_batch.py
+uv run streamlit run evals/label_app.py
+uv run python evals/judge.py
+uv run python evals/metrics.py evals/results_judged.json
+```
+
 ## Tests
 
 ```bash

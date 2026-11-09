@@ -47,7 +47,7 @@ LABELS = [
     (30, 'good', '', 'Explains invisibility (unseen, equipment invisible, ends on attack/cast) and what it does/doesn\'t do for targeting.'),
     (31, 'good', '', 'Correct by the default rules (drinking = action; some potions specify bonus-action effects) and cites DMG. Note: a house rule to drink potions as a bonus action was saved in notes, but the agent answered the rules question and did not misapply it.'),
     (32, 'good', '', 'One concentration at a time; casting another concentration effect ends the first; lists the other break conditions.'),
-    (33, 'good', '', 'Correct: Sneak Attack is once per turn and tied to the attack conditions; reactions are not your turn.'),
+    (33, 'bad', 'incorrect-detail', 'Claims Sneak Attack cannot apply on reactions because they are "not part of the rogue\'s turn" — wrong: the rule is once per turn (any turn), so e.g. an opportunity attack can Sneak Attack if the conditions hold. Classic scope misread with a citation attached.'),
     (34, 'good', '', 'Darkvision lets you see in darkness as dim light (shades of gray) within range — correct.'),
     (35, 'good', '', 'Correct: Help gives advantage on the next ability check for that task, before the start of your next turn.'),
     (36, 'good', '', 'Out of scope — declined cleanly (0 tool calls, no hallucination).'),
