@@ -2,7 +2,9 @@
 
 An agentic RAG system for **Dungeons & Dragons 5th Edition** that answers combat, spellcasting, monster, and character-building questions directly from the official rulebooks, citing the exact source passage for every claim.
 
-Built as the capstone project for the **AI Engineering Buildcamp: From RAG to Agents** (AI Shipping Labs), covering the complete lifecycle of a production AI agent: **chunked retrieval & evaluation → multi-tool agent → automated testing & LLM-as-a-Judge → offline evaluation & alignment → OpenTelemetry/Logfire observability & user feedback → containerization & CI/CD**.
+🌐 **Live Cloud Deployment (Google Cloud Run):** **[https://dnd-rag-assistant-295549769491.europe-west1.run.app](https://dnd-rag-assistant-295549769491.europe-west1.run.app)**
+
+Built as the capstone project for the **AI Engineering Buildcamp: From RAG to Agents** (AI Shipping Labs), covering the complete lifecycle of a production AI agent: **chunked retrieval & evaluation → multi-tool agent → automated testing & LLM-as-a-Judge → offline evaluation & alignment → OpenTelemetry/Logfire observability & user feedback → containerization, CI/CD & cloud deployment**.
 
 ---
 
@@ -101,7 +103,7 @@ dnd-rag-assistant/
 ├── Dockerfile                    # Container image definition (uv + Python 3.13)
 ├── docker-compose.yml            # One-command stack startup on port 8501
 ├── Makefile                      # Shortcuts for install, app, cli, test, eval-*, docker-*
-└── ci/github-actions-ci.yml      # GitHub Actions CI pipeline
+└── .github/workflows/ci.yml      # GitHub Actions CI pipeline
 ```
 
 ---
@@ -291,7 +293,7 @@ Following the course documentation guidelines, here is a transparent self-assess
 | **9b. Best Practices: `docker-compose up`** | 2 | **2 / 2** | `docker-compose.yml` starts the full application stack on port 8501 with one command. |
 | **9c. Best Practices: `Makefile`** | 1 | **1 / 1** | `Makefile` provides targets for install, app, cli, test, eval, and docker. |
 | **9d. Best Practices: `uv` dependency management** | 1 | **1 / 1** | `pyproject.toml` + `uv.lock` manage all runtime and dev dependencies. |
-| **9e. Best Practices: CI/CD** | 2 | **2 / 2** | `ci/github-actions-ci.yml` (and `make ci`) runs syntax checks, unit tests, retrieval benchmark, and alignment metrics on every push/PR. |
+| **9e. Best Practices: CI/CD** | 2 | **2 / 2** | `.github/workflows/ci.yml` (and `make ci`) runs syntax checks, unit tests, retrieval benchmark, and alignment metrics on every push/PR. |
 | **10a. Additional Bonus: UI for the agent** | 1 | **1 / 1** | Both a Streamlit web UI (`app.py`) and a terminal CLI (`main.py`) are included. |
-| **10b. Additional Bonus: Cloud deployment** | 2 | 0 / 2 | Containerized and cloud-ready via Docker Compose; run locally by default. |
-| **Total Score** | **35** | **31 / 33** | **(Passing threshold: 12 points)** |
+| **10b. Additional Bonus: Cloud deployment** | 2 | **2 / 2** | Deployed live on **Google Cloud Run** (`europe-west1`): https://dnd-rag-assistant-295549769491.europe-west1.run.app |
+| **Total Score** | **33** | **33 / 33** | **(Passing threshold: 12 points)** |
