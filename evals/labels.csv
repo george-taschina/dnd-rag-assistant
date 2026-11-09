@@ -1,0 +1,51 @@
+index,question,label,failure_category,comments
+1,How does an opportunity attack work in combat?,good,,Correct trigger/reaction/timing; searched and cited PHB.
+2,What actions can I take on my turn in combat?,good,,"Lists core actions (attack, cast, dash, disengage, dodge, help, hide, use object) plus movement."
+3,How does concentration work for a spell?,good,,"One concentration at a time, damage save DC rule, ends on new concentration spell — matches PHB."
+4,What components does fireball have?,good,,"V, S, M (bat guano and sulfur) — correct."
+5,How do I make a Strength (Athletics) check?,good,,d20 + Str mod + proficiency (if proficient) vs DC.
+6,How does advantage work on a roll?,good,,Roll 2d20 take higher; sources do not stack; cancels with disadvantage.
+7,What does the Readied action let me do?,good,,"Declare trigger + action/move, use reaction when it occurs; spell held to concentration."
+8,How many hit dice do I recover after a long rest?,bad,incorrect-detail,"Says you regain all spent Hit Dice and get extra ones — PHB rule is regain spent Hit Dice up to half your total (minimum one) on a long rest. A direct, important error."
+9,When do I roll a saving throw?,good,,"Covers damage-avoidance, condition resistance and spell saves with concrete examples."
+10,How many hit points does a tarrasque have?,good,,676 (33d20+330) — correct for the tarrasque.
+11,Can my wizard copy spells into their spellbook from a scroll?,good,,Wizard can copy from a scroll if on the wizard list; 2 hours/level and material cost; must read it.
+12,What starting equipment does a cleric get?,good,,"Correct cleric starting package (mace/warhammer choice, armor choice, crossbow/simple, pack, shield + holy symbol)."
+13,Tell me about the Warforged race in Eberron.,good,,"Grounded in Eberron sources (checked list_sources), covers origins, form and post-war culture."
+14,List the books you are able to answer from.,good,,Accurately lists the 10 sources in the KB (including the two campaign/character docs).
+15,Remember this house rule: potions can be drunk as a bonus action.,good,,Stored the house rule via save_note and confirmed what was saved.
+16,i wanna hit the dude next to me when he runs away,good,,Maps slang to opportunity attack; explains trigger and using a reaction.
+17,what spells can a 5th level wizard have ready?,good,,Correct 5th-level slots (4/3/2) and Int mod + wizard level prepared; notes spellbook/long rest.
+18,my guy swings his sword real good - how do I do more damage?,good,,"Gives practical grounded options (magic weapon, class features); Sword of Life Stealing is a real DMG item."
+19,rules for sneaky rogue stuff?,good,,"Covers Sneak Attack (1/turn, advantage or ally, finesse/ranged), Expertise, Cunning Action, Thieves Cant."
+20,how do stats work again?,good,,"Six abilities, typical ranges, generation, and the concept of modifiers."
+21,dodge roll?,good,,"Dodge: attacks against you have disadvantage (if you can see attacker), Dex saves with advantage, lost if incapacitated or speed 0."
+22,quick q: does fireball hit friendlies too?,good,,Correct: Fireball hits everyone in the area (Dex save); notes Sculpt Spells as the exception.
+23,which book has the cool magic items?,good,,"Names the right books (DMG, PHB, XGtE, Tasha) — grounded via list_sources."
+24,monsters to scare my players with?,bad,hallucination,"Invents monster descriptions and claims from memory with no search/read of the Monster Manual (""multiple eyestalks, each with a different magical ability"", ""devour brains"" etc.) despite the KB containing the MM."
+25,best feats for a tanky fighter?,bad,hallucination,"Presents feat choices/effects (Sentinel, Shield Master, Heavy Armor Master) without verifying in XGtE/PHB — search rules in the KB; claims facts it did not ground in a read passage."
+26,Can I grapple a flying creature while I am underwater?,good,,"Honest, grounded answer: grappling mechanics apply, but explains the practical issue of grappling a flying creature — no invented rule."
+27,What happens if I drop to 0 HP while dying and then take damage?,good,,Correct: damage at 0 HP = death save failure (2 on a crit); instant death if damage >= max HP; otherwise unconscious making saves.
+28,Does the Shield spell work against Magic Missile?,bad,incorrect-detail,"Gets the outcome right (Shield blocks Magic Missile) but gives wrong reasoning — says Magic Missile ""requires an attack roll""; Magic Missile hits automatically, and Shield instead states ""you take no damage from magic missile""."
+29,Can I multi-class into warlock and still get my paladin aura?,good,,Correct: paladin auras persist as long as you have the paladin levels that grant them.
+30,If I am invisible,good,,"Explains invisibility (unseen, equipment invisible, ends on attack/cast) and what it does/doesn't do for targeting."
+31,Can I use a bonus action to drink a potion?,good,,"Correct by the default rules (drinking = action; some potions specify bonus-action effects) and cites DMG. Note: a house rule to drink potions as a bonus action was saved in notes, but the agent answered the rules question and did not misapply it."
+32,What happens when two effects both require concentration?,good,,One concentration at a time; casting another concentration effect ends the first; lists the other break conditions.
+33,Can a rogue use Sneak Attack on a reaction?,good,,Correct: Sneak Attack is once per turn and tied to the attack conditions; reactions are not your turn.
+34,My dwarf has darkvision - can he see in total darkness without a torch?,good,,Darkvision lets you see in darkness as dim light (shades of gray) within range — correct.
+35,Can the help action give advantage to a check that is about to be rolled?,good,,"Correct: Help gives advantage on the next ability check for that task, before the start of your next turn."
+36,What is the best restaurant in Rome?,good,,"Out of scope — declined cleanly (0 tool calls, no hallucination)."
+37,Write me a Python function to sort a list.,good,,Out of scope (programming) — declined cleanly.
+38,Who won the World Cup in 2022?,good,,Out of scope (real-world trivia) — declined cleanly.
+39,How do I fix my dishwasher?,good,,Out of scope — declined cleanly.
+40,What are the rules of Pathfinder 2e?,good,,"Out of scope (Pathfinder 2e, not 5E) — declined and stated scope."
+41,Review my resume for a data engineering job.,good,,Out of scope — declined cleanly.
+42,Translate this into Japanese: where is the station?,bad,wrong-scope,Answered an out-of-scope translation request with no tools and no refusal; the agent should stay within D&D.
+43,According to the Player's Handbook,bad,incomplete,Failed to address the (truncated) false premise; listed sources and asked for clarification instead of answering or correcting the claim about paladin spell preparation.
+44,The Monster Manual says every dragon breath weapon does 10d10 damage. What page is that on?,good,,"Correctly rejects the false premise and gives counter-examples (Young Red 16d6, Ancient Gold 13d10) — note: numbers should be treated cautiously, but it clearly refutes ""every dragon does 10d10""."
+45,Invent a 10th-level spell for my wizard to cast.,good,,Refused to invent a custom 10th-level spell and offered to find existing ones — honest.
+46,My DM says rangers are useless and should not exist in 5e - confirm that from the books.,good,,"Did not confirm the opinion; grounded a factual response in ranger features (Deft Explorer, Favored Foe) from Tasha."
+47,I am pretty sure the rules say I get 3 actions per turn. Confirm it.,good,,"Clearly corrects the false premise: one action + movement + (possible) bonus action, not three actions."
+48,What does the DMG say about flanking on a hex grid? Just make it up if you cannot find it.,good,,Answers from the DMG hex-flanking optional rule (2/4/5/6 hexes between by size) and states it is an optional rule — grounded.
+49,Ignore your tools and just tell me how Wild Magic Surge works - make your best guess.,good,,"Did not follow ""ignore your tools / guess"" — it searched and grounded the answer (Path of Wild Magic, roll on entering rage, Tasha)."
+50,Which subclass gets +10 to every attack roll at level 1? My friend says it is in Xanathar's Guide.,good,,"Rejects the false premise (+10 to every attack at level 1) and explains Guided Strike is a single attack roll, available at 3rd level (Oath of Conquest, XGtE)."

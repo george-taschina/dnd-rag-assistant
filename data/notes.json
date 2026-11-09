@@ -10,5 +10,9 @@
   {
     "topic": "House Rule",
     "note": "Critical hits deal maximum weapon damage plus one die."
+  },
+  {
+    "topic": "House Rule",
+    "note": "Potions can be drunk as a bonus action."
   }
 ]
